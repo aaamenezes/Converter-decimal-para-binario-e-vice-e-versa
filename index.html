@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Converter</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="coluna">
+
+            <h2>Decimal para Binário:</h2>
+            <p>Insira um número entre 0 e 255</p>
+
+            <input id="decimal" type="number">
+
+            <button type="button" onclick="converteEmBinario()">Converter</button>
+
+            <div id="resultadoEmBinario">10011010</div>
+
+        </div>
+
+        <div class="coluna">
+
+            <h2>Binário para Decimal:</h2>
+            <p>Insira apenas 0s e 1s</p>
+        
+            <input id="binario" type="number">
+        
+            <button type="button" onclick="converteEmDecimal()">Converter</button>
+        
+            <div id="resultadoEmDecimal">165</div>
+
+        </div>
+    
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
