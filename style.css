@@ -28,6 +28,9 @@ button {
 #resultadoEmBinario,
 #resultadoEmDecimal {
     margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
 .container {
