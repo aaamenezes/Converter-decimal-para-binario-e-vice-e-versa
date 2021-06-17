@@ -2,7 +2,8 @@
 
 ## Descrição
 
-Projeto criado para avaliação de processo seletivo.  
+Projeto criado para avaliação de processo seletivo.
+
 Inicialmente feito em Python, resolvi criá-lo no Github em Javascript, pois é uma linguagem na qual quero me especializar.
 
 ## Publicação
@@ -19,6 +20,18 @@ Foi utilizado HTML e CSS para construção da página.
 
 O tratamento dos dados enviados pelo usuário e exibição dos resultados foram feitos em Javascript puro.
 
-## Licença
+## Como rodar esse projeto em seu computador
 
-Não se aplica.
+1. Faça um clone do projeto em seu computador:
+
+```
+git clone https://github.com/aaamenezes/Converter-decimal-para-binario-e-vice-e-versa.git
+```
+
+2. Acesse a pasta do projeto
+
+```
+cd Converter-decimal-para-binario-e-vice-e-versa
+```
+
+3. Inicie o projeto executando o arquivo index.html, de preferência com um servidor local. O plugin Live Server para o VS Code já é o suficiente.
