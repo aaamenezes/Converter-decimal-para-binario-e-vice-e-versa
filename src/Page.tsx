@@ -4,16 +4,16 @@ import { convertToBinary } from './convertToBinary';
 import { convertToDecimal } from './convertToDecimal';
 
 export default function Page() {
-  const [decimal, setDecimal] = useState(42);
-  const [binaryResult, setBinaryResult] = useState(101010);
+  const [decimal, setDecimal] = useState('42');
+  const [binaryResult, setBinaryResult] = useState('101010');
 
-  const [binary, setBinary] = useState(101010);
-  const [decimalResult, setDecimalResult] = useState(42);
+  const [binary, setBinary] = useState('101010');
+  const [decimalResult, setDecimalResult] = useState('42');
 
   const handleSubmitDecimal = useCallback(
     (event: FormEvent) => {
       event.preventDefault();
-      setBinaryResult(convertToBinary(decimal));
+      setBinaryResult(convertToBinary(Number(decimal)));
     },
     [setBinaryResult, decimal]
   );
@@ -21,31 +21,28 @@ export default function Page() {
   const handleSubmitBinary = useCallback(
     (event: FormEvent) => {
       event.preventDefault();
-      setDecimalResult(convertToDecimal(binary));
+      setDecimalResult(convertToDecimal(Number(binary)));
     },
     [setDecimalResult, binary]
   );
 
   const handleChangeDecimal = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
-      const newValue = Number(event.currentTarget.value);
-      setDecimal(newValue);
-      setBinaryResult(convertToBinary(newValue));
+      setDecimal(event.currentTarget.value);
+      setBinaryResult(convertToBinary(Number(event.currentTarget.value)));
     },
     [setDecimal, setBinaryResult]
   );
 
   const handleChangeBinary = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
-      const newValue = Number(
-        event.currentTarget.value
-          .split('')
-          .filter(n => n === '1' || n === '0')
-          .join('')
-      );
+      const newValue = event.currentTarget.value
+        .split('')
+        .filter(n => n === '1' || n === '0')
+        .join('');
 
       setBinary(newValue);
-      setDecimalResult(convertToDecimal(newValue));
+      setDecimalResult(convertToDecimal(Number(newValue)));
     },
     []
   );
@@ -57,7 +54,7 @@ export default function Page() {
       </header>
 
       <div className='flex-1 grid gap-y-10 md:grid-cols-2 place-items-center p-3 bg-slate-200'>
-        <form className='flex flex-col' onSubmit={handleSubmitDecimal}>
+        <form className='flex flex-col w-80' onSubmit={handleSubmitDecimal}>
           <h2 className='text-3xl mb-8'>Decimal para Binário:</h2>
           <input
             type='number'
@@ -70,7 +67,7 @@ export default function Page() {
             className='rounded-md p-2 mb-8 text-white font-bold uppercase bg-purple-800 hover:bg-purple-900'>
             Convert
           </button>
-          <div className='p-2 mb-2 text-xl font-mono bg-slate-300 cursor-default'>
+          <div className='p-2 mb-2 overflow-x-auto text-xl font-mono bg-slate-300 cursor-default'>
             {binaryResult}
           </div>
           <button
@@ -80,7 +77,7 @@ export default function Page() {
           </button>
         </form>
 
-        <form className='flex flex-col' onSubmit={handleSubmitBinary}>
+        <form className='flex flex-col w-80' onSubmit={handleSubmitBinary}>
           <h2 className='text-3xl mb-8'>Binário para Decimal:</h2>
           <input
             type='number'
@@ -93,7 +90,7 @@ export default function Page() {
             className='rounded-md p-2 mb-8 text-white font-bold uppercase bg-purple-800 hover:bg-purple-900'>
             Convert
           </button>
-          <div className='p-2 mb-2 text-xl font-mono bg-slate-300 cursor-default'>
+          <div className='p-2 mb-2 overflow-x-auto text-xl font-mono bg-slate-300 cursor-default'>
             {decimalResult}
           </div>
           <button

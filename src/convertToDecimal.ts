@@ -1,4 +1,4 @@
-export function convertToDecimal(binario: number): number {
+export function convertToDecimal(binario: number) {
   const binaryInList = binario.toString().split('').reverse();
   const decimalsToSum = binaryInList.map((number, index: number) => {
     return Math.pow(2, index) * Number(number);
@@ -9,5 +9,5 @@ export function convertToDecimal(binario: number): number {
     0
   );
 
-  return decimalResult;
+  return decimalResult.toString();
 }
